@@ -31,7 +31,7 @@ public class Credentials
     private char[] password = new char[0];
     private String hostname = "";
     private String protocol = "";
-    private String defaulRemotetPath = "";
+    private String defaultRemotePath = "";
 
     /**
      * Create new credentials
@@ -85,7 +85,7 @@ public class Credentials
             }
         }
 
-        return sb.append(defaulRemotetPath).toString();
+        return sb.append(defaultRemotePath).toString();
     }
 
     /**
@@ -94,7 +94,7 @@ public class Credentials
      */
     public String getDefaulRemotetPath()
     {
-        return defaulRemotetPath;
+        return defaultRemotePath;
     }
 
     /**
@@ -170,7 +170,7 @@ public class Credentials
             m_credentials = new Credentials(m_hostname);
 
             m_credentials.username = this.m_username;
-            m_credentials.defaulRemotetPath = this.m_defaultRemotePath;
+            m_credentials.defaultRemotePath = this.m_defaultRemotePath;
             m_credentials.password = this.m_password;
             m_credentials.protocol = this.m_protocol;
             m_credentials.port = this.m_port;
