@@ -465,6 +465,8 @@ public final class VFSUtils
             {
                 SftpFileSystemConfigBuilder.getInstance()
                                            .setStrictHostKeyChecking(opts, "no");
+                SftpFileSystemConfigBuilder.getInstance()
+                                           .setUserDirIsRoot(opts, false);
             }
 
             return getFileSystemManager().resolveFile(filePath, opts);
