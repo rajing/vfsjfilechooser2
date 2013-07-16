@@ -18,6 +18,10 @@
  */
 package com.googlecode.vfsjfilechooser2.accessories.connection;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Representation of users credentials
@@ -26,6 +30,8 @@ package com.googlecode.vfsjfilechooser2.accessories.connection;
  */
 public class Credentials
 {
+    private Logger logger = Logger.getLogger(Credentials.class.getName());
+
     private int port = -1;
     private String username = "";
     private char[] password = new char[0];
@@ -71,7 +77,15 @@ public class Credentials
                 if (password.length != 0)
                 {
                     sb.append(":");
-                    sb.append(this.password);
+                    try
+                    {
+                        String pwStr = new String(this.password);
+                        sb.append(URLEncoder.encode(pwStr, "UTF-8"));
+                    }
+                    catch (UnsupportedEncodingException exc)
+                    {
+                        logger.log(Level.SEVERE, "encoding not supported", exc);
+                    }
                 }
 
                 sb.append("@");
